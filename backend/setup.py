@@ -15,6 +15,7 @@ setup(
         "click==8.1.7",
         "starlette==0.36.3",
         "anyio==4.2.0",
+        "gunicorn==21.2.0",
     ],
     python_requires=">=3.9",
 ) 
