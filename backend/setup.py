@@ -13,7 +13,7 @@ setup(
         "python-multipart==0.0.6",
         "h11==0.14.0",
         "click==8.1.7",
-        "starlette==0.26.1",
+        "starlette==0.27.0",
         "anyio==3.6.2",
         "gunicorn==20.1.0",
     ],
