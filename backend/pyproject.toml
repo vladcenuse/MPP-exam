@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mpp-examen"
+version = "1.0.0"
+description = "MMO RPG Character System"
+requires-python = ">=3.9"
+authors = [
+    {name = "Your Name"}
+] 
