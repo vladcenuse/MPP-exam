@@ -16,6 +16,8 @@ const isLoading = ref(true)
 const error = ref<string | null>(null)
 let ws: WebSocket | null = null
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
 // WebSocket setup
 const setupWebSocket = () => {
   if (ws) {
@@ -25,7 +27,9 @@ const setupWebSocket = () => {
 
   try {
     console.log('Attempting to connect to WebSocket...')
-    ws = new WebSocket('ws://localhost:8000/ws')
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
+    const wsUrl = `${wsProtocol}//${API_URL.replace(/^https?:\/\//, '')}/ws`
+    ws = new WebSocket(wsUrl)
     
     ws.onopen = () => {
       console.log('%cWebSocket Connected ✅', 'color: #00ff00; font-weight: bold')
