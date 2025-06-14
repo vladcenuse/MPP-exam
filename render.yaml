@@ -2,8 +2,8 @@ services:
   - type: web
     name: mpp-examen
     env: python
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && gunicorn app.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.18 
