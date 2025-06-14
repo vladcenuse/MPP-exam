@@ -3,7 +3,7 @@ services:
     name: mpp-examen
     env: python
     buildCommand: pip install -r backend/requirements.txt && cd backend && pip install .
-    startCommand: cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.18 
