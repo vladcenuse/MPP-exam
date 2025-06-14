@@ -4,6 +4,7 @@ from typing import List, Optional, Set
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import random
+import os
 from datetime import datetime
 
 class Character(BaseModel):
@@ -16,6 +17,9 @@ class Character(BaseModel):
     imageUrl: str
 
 app = FastAPI()
+
+# Get the port from environment variable for production
+PORT = os.getenv("PORT", 10000)
 
 # In-memory storage with default characters
 characters: List[Character] = [
@@ -116,7 +120,10 @@ origins = [
     "http://localhost:5173",
     "ws://localhost:5173",
     "http://localhost:8000",
-    "ws://localhost:8000"
+    "ws://localhost:8000",
+    # Add your production frontend URL here when you deploy it
+    "https://*.onrender.com",
+    "wss://*.onrender.com"
 ]
 
 app.add_middleware(
